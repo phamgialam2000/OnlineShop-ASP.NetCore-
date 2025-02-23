@@ -1,10 +1,12 @@
 using BusinessObjects;
 using Repositories.Interface;
 using Repositories;
+using ProductManagementAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped(typeof(ShopOnlineDbContext));
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();

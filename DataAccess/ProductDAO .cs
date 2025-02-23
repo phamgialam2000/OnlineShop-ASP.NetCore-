@@ -12,7 +12,7 @@ namespace DataAccess
     {
         public async Task<IEnumerable<Product>> GetProductAll()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.Include(c => c.Category).ToListAsync();
         }
         public async Task<Product> GetProductById(int id)
         {

@@ -1,5 +1,6 @@
 ﻿using BusinessObjects;
 using Services.Interfaces;
+using ShopDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,9 @@ namespace Services
         {
             _httpClient = httpClient;
         }
-        public async Task<IEnumerable<Product>> GetAllProduct()
+        public async Task<IEnumerable<ProductDTO>> GetAllProduct()
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<Product>>("api/Product");
+            return await _httpClient.GetFromJsonAsync<IEnumerable<ProductDTO>>("api/Product");
         }
 
         public async Task<Product> GetProductById(int id)
